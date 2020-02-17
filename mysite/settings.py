@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o$u4#@x67cpybmo4+$n^@r^in$40-0n^q_q4yh6g++e-xteyjz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://alferon15.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
