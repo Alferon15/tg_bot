@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+
+{% block title %}product_index{% endblock %}
+
+{% block content %}
+    <h1>Страница product_index</h1>
+    <a href="{% url 'base_app:index' %}"></a>
+    <a href="{% url 'products:index' %}"></a>
+{% endblock %}
