@@ -25,7 +25,7 @@ SECRET_KEY = 'o$u4#@x67cpybmo4+$n^@r^in$40-0n^q_q4yh6g++e-xteyjz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://alferon15.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['alferon15.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
