@@ -6,7 +6,6 @@ from telegram.ext import Dispatcher, Updater
 from .bot_config import BOT_TOKEN, WEBHOOK_URL
 
 bot = Bot(BOT_TOKEN)
-dp = Dispatcher(bot)
 updater = Updater(BOT_TOKEN)
 
 bot.delete_webhook()
