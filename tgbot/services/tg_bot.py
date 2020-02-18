@@ -13,13 +13,14 @@ logging.basicConfig(level=logging.INFO)
 
 
 def process_request(data):
-    updates: Update
     pass
 
 
 def parse_updates(data):
-    # updates: Update = data
-    send_message_to_admin(str(data))
+    update = data
+    msg = update
+
+    send_message_to_admin(f'---\n{msg}\n---')
 
 
 def send_message_to_admin(msg):
