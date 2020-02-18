@@ -7,9 +7,11 @@ from .services.tg_bot import *
 
 class TelegramBotView(View):
     def get(self, request):
-        bot.send_message(100204219, 'GET')
+        bot.send_message(100204219, 'Главная страница посещена!')
+        bot.send_message(100204219, bot.get_webhook_info().de_json())
         return JsonResponse({"ok": "GET request processed"})
 
     def post(self, request):
-        bot.send_message(100204219, 'POST')
+        msg = request.de_json()
+        bot.send_message(100204219, msg)
         return JsonResponse({"ok": "POST request processed"})
