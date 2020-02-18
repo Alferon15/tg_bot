@@ -18,8 +18,8 @@ def process_request(data):
 
 
 def parse_updates(data):
-    updates: Update = data
-    send_message_to_admin(updates.de_json())
+    # updates: Update = data
+    send_message_to_admin(data)
 
 
 def send_message_to_admin(msg):
