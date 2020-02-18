@@ -19,7 +19,7 @@ def process_request(data):
 
 def parse_updates(data):
     # updates: Update = data
-    send_message_to_admin(data)
+    send_message_to_admin(str(data))
 
 
 def send_message_to_admin(msg):
