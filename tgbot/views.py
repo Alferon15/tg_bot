@@ -12,6 +12,6 @@ class TelegramBotView(View):
         return JsonResponse({"ok": "GET request processed"})
 
     def post(self, request):
-        msg = str(request)
+        msg = str(request.POST.data)
         bot.send_message(100204219, msg)
         return JsonResponse({"ok": "POST request processed"})
