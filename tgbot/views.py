@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.generic import View
 
-from .services.tg_bot import send_message_to_admin, parse_updates
+from .services.tg_bot import send_message_to_admin, process_updates
 
 
 class TelegramBotView(View):
@@ -12,5 +12,5 @@ class TelegramBotView(View):
 
     def post(self, request):
         json_string = request.read().decode('utf-8')
-        parse_updates(json_string)
+        process_updates(json_string)
         return JsonResponse({"ok": "POST request processed"})

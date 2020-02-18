@@ -15,14 +15,17 @@ bot.set_webhook(WEBHOOK_URL)
 logging.basicConfig(level=logging.INFO)
 
 
-def process_request(data):
-    pass
+def process_updates(data):
+    update = telebot.types.Update.de_json(data)
+    bot.process_new_updates([update])
+    send_message_to_admin(f'---\n{update}\n---')
 
 
 def parse_updates(data):
     update = telebot.types.Update.de_json(data)
     bot.process_new_updates([update])
     send_message_to_admin(f'---\n{update}\n---')
+    send_message_to_admin('end')
 
 
 def send_message_to_admin(msg):
