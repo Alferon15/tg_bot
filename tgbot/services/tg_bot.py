@@ -5,6 +5,7 @@ from telegram.ext import Updater
 
 from .bot_config import BOT_TOKEN, WEBHOOK_URL, SECRET
 
+
 updater = Updater(BOT_TOKEN)
 updater.start_webhook(
     listen='0.0.0.0',
