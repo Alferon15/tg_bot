@@ -5,6 +5,7 @@ from telegram.ext import Updater
 
 from .bot_config import BOT_TOKEN, WEBHOOK_URL, SECRET
 
+bot = Bot(BOT_TOKEN)
 
 updater = Updater(BOT_TOKEN)
 updater.start_webhook(
@@ -15,5 +16,6 @@ updater.start_webhook(
     cert='certificate/cert.pem',
     webhook_url=WEBHOOK_URL
 )
+updater.bot.set_webhook(WEBHOOK_URL, certificate='certificate/cert.pem')
 
 logging.basicConfig(level=logging.INFO)
