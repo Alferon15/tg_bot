@@ -1,3 +1,5 @@
+import time
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.generic import View
@@ -13,4 +15,5 @@ class TelegramBotView(View):
     def post(self, request):
         json_string = request.read().decode('utf-8')
         process_updates(json_string)
-        return ''  # JsonResponse({"ok": True})
+        time.sleep(0.1)
+        return JsonResponse({"ok": True})

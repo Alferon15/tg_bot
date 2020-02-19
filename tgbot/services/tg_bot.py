@@ -18,8 +18,7 @@ def process_updates(data):
     update = telebot.types.Update.de_json(data)
     bot.process_new_updates([update])
     # send_message_to_admin(f'{update}')
-    # time.sleep(1)
-    # send_message_to_admin('------')
+    send_message_to_admin('POST')
 
 
 def parse_updates(data):
@@ -35,7 +34,7 @@ def send_welcome(message):
     print('send_welcome')
     bot.reply_to(message,
                  ("Привет, я бот\n"
-                  "Стартыыы!"))
+                  "Старт!"))
 
 
 @bot.message_handler(commands=['help'])
