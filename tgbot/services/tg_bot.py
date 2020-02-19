@@ -17,12 +17,8 @@ logging.basicConfig(level=logging.INFO)
 def process_updates(data):
     update = telebot.types.Update.de_json(data)
     bot.process_new_updates([update])
-    send_message_to_admin('POST')
+    send_message_to_admin(update)
     return JsonResponse({"ok": True})
-
-
-def parse_updates(data):
-    pass
 
 
 def send_message_to_admin(msg):
