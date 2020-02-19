@@ -1,6 +1,6 @@
 import logging
-import time
 
+from django.http import JsonResponse
 import telebot
 
 from .bot_config import BOT_TOKEN, WEBHOOK_URL, admin_id
@@ -17,8 +17,8 @@ logging.basicConfig(level=logging.INFO)
 def process_updates(data):
     update = telebot.types.Update.de_json(data)
     bot.process_new_updates([update])
-    # send_message_to_admin(f'{update}')
     send_message_to_admin('POST')
+    return JsonResponse({"ok": True})
 
 
 def parse_updates(data):
@@ -39,7 +39,6 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
-    print('send_welcome')
     bot.reply_to(message,
                  ("Привет, я бот\n"
                   "Помощь!"))
