@@ -31,6 +31,7 @@ def send_message_to_admin(msg):
 
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
+    print('send_welcome')
     bot.reply_to(message,
                  ("Привет, я бот\n"
                   "Я ничего не умею!"))
