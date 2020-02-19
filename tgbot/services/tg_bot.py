@@ -1,4 +1,5 @@
 import logging
+import time
 
 import telebot
 
@@ -16,7 +17,9 @@ logging.basicConfig(level=logging.INFO)
 def process_updates(data):
     update = telebot.types.Update.de_json(data)
     bot.process_new_updates({update})
-    send_message_to_admin(f'---\n{update}\n---')
+    send_message_to_admin(f'{update}')
+    time.sleep(3)
+    send_message_to_admin('------')
 
 
 def parse_updates(data):
