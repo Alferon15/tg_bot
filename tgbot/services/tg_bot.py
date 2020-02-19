@@ -9,9 +9,6 @@ telebot.logger.setLevel(logging.INFO)
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
-bot.delete_webhook()
-bot.set_webhook(WEBHOOK_URL)
-
 logging.basicConfig(level=logging.INFO)
 
 
@@ -37,3 +34,7 @@ def send_welcome(message):
     bot.reply_to(message,
                  ("Привет, я бот\n"
                   "Я ничего не умею!"))
+
+
+bot.delete_webhook()
+bot.set_webhook(WEBHOOK_URL)
