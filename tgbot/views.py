@@ -13,4 +13,4 @@ class TelegramBotView(View):
     def post(self, request):
         json_string = request.read().decode('utf-8')
         process_updates(json_string)
-        return JsonResponse({"ok": True})
+        return ''  # JsonResponse({"ok": True})
