@@ -4,6 +4,7 @@ import telebot
 
 from .bot_config import BOT_TOKEN, WEBHOOK_URL, admin_id
 
+
 logger = telebot.logger
 telebot.logger.setLevel(logging.INFO)
 
@@ -19,10 +20,7 @@ def process_updates(data):
 
 
 def parse_updates(data):
-    update = telebot.types.Update.de_json(data)
-    bot.process_new_updates([update])
-    send_message_to_admin(f'---\n{update}\n---')
-    send_message_to_admin('end')
+    pass
 
 
 def send_message_to_admin(msg):
@@ -35,6 +33,11 @@ def send_welcome(message):
     bot.reply_to(message,
                  ("Привет, я бот\n"
                   "Я ничего не умею!"))
+
+
+@bot.message_handler(func=lambda message: True, content_types=['text'])
+def echo_message(message):
+    bot.reply_to(message, message.text)
 
 
 bot.delete_webhook()
