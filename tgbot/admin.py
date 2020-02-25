@@ -4,4 +4,4 @@ from .models import TelegramUser
 
 @admin.register(TelegramUser)
 class TelegramUserAdmin(admin.ModelAdmin):
-    pass
+    fields = '__all__'

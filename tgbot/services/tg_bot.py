@@ -20,13 +20,24 @@ def process_updates(data):
     message = update.message
     user_id = message.from_user.id
     username = message.from_user.username
-    user = TelegramUser.objects.get_or_create(id=user_id, username=username)
+    try:
+        user = TelegramUser.objects.get(id=user_id)
+    except TelegramUser.DoesNotExist:
+        user = None
 
-    msg = f'update_id - {update.update_id}\n' \
+    if not user:
+        user = TelegramUser.objects.create(id=user_id, username=username)
+
+    msg = f'user - {user.id}\n' \
+          f'update_id - {update.update_id}\n' \
           f'from_user - {message.from_user.id}\n' \
           f'username - {message.from_user.username}\n\n' \
           f'content_type - {message.content_type}\n' \
           f'{message.text}'
+    if user.is_admin:
+        msg += '\nАдмин!'
+    if user.is_allowed:
+        msg += '\nДопущен!'
 
     send_message_to_admin(msg)
     return JsonResponse({"ok": True})
