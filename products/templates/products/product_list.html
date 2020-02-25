@@ -3,24 +3,43 @@
 {% block title %}product_index{% endblock %}
 
 {% block content %}
+
     <h1>Страница product_index</h1>
     <a href="{% url 'base_app:index' %}"></a>
     <a href="{% url 'products:index' %}"></a>
-    <hr>
-    {% for prod in product_list %}
-        <div class="jumbotron">
-            <h1>{{ prod.title }}</h1>
-            <h2>{{ prod.description }}</h2>
-            {% for comment in prod.comments.all %}
-                <h3>{{ comment.title }}</h3>
-                <h4>{{ comment.text }}</h4>
-            {% empty %}
-                <h3>Комментариев нет!</h3>
-            {% endfor %}
 
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for prod in product_list %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                {{ prod.title }}
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {{ prod.description }}
+                                </p>
+                                <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+                            </div>
+                            <div class="card-footer">
+                                {% for comment in prod.comments.all %}
+                                    <h3>{{ comment.title }}</h3>
+                                    <h4>{{ comment.text }}</h4>
+                                    <hr>
+                                {% empty %}
+                                    <h3>Пусто!</h3>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <h3>Комментариев нет!</h3>
+                {% endfor %}
+            </div>
         </div>
-    {% empty %}
-        <h1>Пусто!</h1>
-    {% endfor %}
+    </div>
+
 
 {% endblock %}
