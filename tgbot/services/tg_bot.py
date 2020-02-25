@@ -29,7 +29,6 @@ def process_updates(data):
           f'username - {message.from_user.username}\n\n' \
           f'content_type - {message.content_type}\n' \
           f'{message.text}'
-
     send_message_to_admin(msg)
     return JsonResponse({"ok": True})
 
