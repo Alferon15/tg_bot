@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'base_app.apps.BaseAppConfig',
     'products.apps.ProductsConfig',
+    'tgbot.apps.TgbotConfig',
 ]
 
 MIDDLEWARE = [
