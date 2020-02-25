@@ -21,7 +21,7 @@ from django.urls import path, include
 from tgbot.services.bot_config import SECRET
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', include('base_app.urls')),
     path(''+SECRET, include('tgbot.urls'), name='tg_bot'),
     path('accounts/', include('allauth.urls'), name='accounts'),
