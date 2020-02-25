@@ -11,6 +11,9 @@
         <div class="jumbotron">
             <h1>{{ prod.title }}</h1>
             <h2>{{ prod.description }}</h2>
+        {% for comm in prod.comments %}
+            <h1><b>comm.title</b></h1>
+        {% endfor %}
         </div>
     {% empty %}
         <h1>Пусто!</h1>

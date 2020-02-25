@@ -30,7 +30,8 @@ class Image(models.Model):
 
     title = models.TextField(verbose_name='Заголовок', max_length=100)
     description = models.TextField(verbose_name='Описание')
-    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True)
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True,
+                                related_name='images', related_query_name='images')
     image = models.ImageField(verbose_name='Изображение', upload_to='products/')
     number = models.PositiveSmallIntegerField(verbose_name='Порядок отображения')
 
@@ -42,7 +43,8 @@ class Comment(models.Model):
 
     title = models.TextField(verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
-    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True)
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True,
+                                related_name='comments', related_query_name='comments')
     # user = models.OneToOneField(User, verbose_name='Пользователь', null=True, on_delete=models.SET_NULL)
     approved = models.BooleanField(verbose_name='Одобрен', default=False, blank=False)
     # approved_by = models.OneToOneField(User, verbose_name='Кем одобрено', null=True, on_delete=models.SET_NULL)
