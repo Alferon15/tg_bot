@@ -5,8 +5,6 @@
 {% block content %}
 
     <h1>Страница product_index</h1>
-    <a href="{% url 'base_app:index' %}"></a>
-    <a href="{% url 'products:index' %}"></a>
 
     <div class="album py-5 bg-light">
         <div class="container">
@@ -21,7 +19,7 @@
                                 <p class="card-text">
                                     {{ prod.description }}
                                 </p>
-                                <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+                                <a href="#" class="btn btn-primary">Просмотреть</a>
                             </div>
                             <div class="card-footer">
                                 {% for comment in prod.comments.all %}
