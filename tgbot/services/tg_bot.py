@@ -16,13 +16,11 @@ logging.basicConfig(level=logging.INFO)
 
 def process_updates(data):
     update = telebot.types.Update.de_json(data)
-    send_message_to_admin(update)
     message = update.message
-    msg = f'{update.update_id}\n' \
-          f'{message.content_type}\n' \
-          f'{message.from_user}' \
-          f'{message.text}' \
-          f'---'
+    msg = f'update_id - {update.update_id}\n' \
+          f'content_type - {message.content_type}\n' \
+          f'from_user - {message.from_user}\n\n' \
+          f'{message.text}'
     send_message_to_admin(msg)
     return JsonResponse({"ok": True})
 
