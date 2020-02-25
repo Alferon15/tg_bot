@@ -18,7 +18,7 @@ def process_updates(data):
     update = telebot.types.Update.de_json(data)
     send_message_to_admin(update)
     send_message_to_admin(update.message)
-    send_message_to_admin(update.message.chat)
+    send_message_to_admin(update.message.entities)
     return JsonResponse({"ok": True})
 
 
