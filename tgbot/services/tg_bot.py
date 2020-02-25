@@ -16,10 +16,12 @@ logging.basicConfig(level=logging.INFO)
 
 
 def process_updates(data):
+    res = JsonResponse({"ok": True})
     update = telebot.types.Update.de_json(data)
     message = update.message
     user_id = message.from_user.id
     username = message.from_user.username
+
     try:
         user = TelegramUser.objects.get(id=user_id)
     except TelegramUser.DoesNotExist:
@@ -40,7 +42,7 @@ def process_updates(data):
         msg += '\nДопущен!'
 
     send_message_to_admin(msg)
-    return JsonResponse({"ok": True})
+    return res
 
 
 def send_message_to_admin(msg):

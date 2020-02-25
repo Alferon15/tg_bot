@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -42,7 +43,7 @@ class Comment(models.Model):
 
     title = models.TextField(verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
-    #user = models.OneToOneField('User', verbose_name='Пользователь', null=True, on_delete=models.SET_NULL)
+    user = models.OneToOneField(User, verbose_name='Пользователь', null=True, on_delete=models.SET_NULL)
     approved = models.BooleanField(verbose_name='Одобрен', default=False, blank=False)
-    #approved_by = models.OneToOneField('User', verbose_name='Кем одобрено', null=True, on_delete=models.SET_NULL)
+    approved_by = models.OneToOneField(User, verbose_name='Кем одобрено', null=True, on_delete=models.SET_NULL)
     time_approved = models.DateTimeField(verbose_name='Когда одобрено', null=True)
