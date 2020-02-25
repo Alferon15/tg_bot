@@ -6,4 +6,14 @@
     <h1>Страница product_index</h1>
     <a href="{% url 'base_app:index' %}"></a>
     <a href="{% url 'products:index' %}"></a>
+    <hr>
+    {% for prod in product_list %}
+        <div class="jumbotron">
+            <h1>{{ prod.title }}</h1>
+            <h2>{{ prod.description }}</h2>
+        </div>
+    {% empty %}
+        <h1>Пусто!</h1>
+    {% endfor %}
+
 {% endblock %}
