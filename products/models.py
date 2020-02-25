@@ -9,11 +9,9 @@ class Product(models.Model):
 
     title = models.TextField(verbose_name='Заголовок', max_length=100)
     description = models.TextField(verbose_name='Описание')
-    images = models.ForeignKey('Image', verbose_name='Изображения', on_delete=models.CASCADE)
     category = models.ManyToManyField('Category', verbose_name='Категория')
     cost = models.FloatField(verbose_name='Стоимость')
     count = models.PositiveIntegerField(verbose_name='Количество')
-    comments = models.ForeignKey('Comment', verbose_name='Комментарии', on_delete=models.CASCADE)
 
 
 class Category(models.Model):
@@ -32,6 +30,7 @@ class Image(models.Model):
 
     title = models.TextField(verbose_name='Заголовок', max_length=100)
     description = models.TextField(verbose_name='Описание')
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE)
     image = models.ImageField(verbose_name='Изображение', upload_to='products/')
     number = models.PositiveSmallIntegerField(verbose_name='Порядок отображения')
 
@@ -43,6 +42,7 @@ class Comment(models.Model):
 
     title = models.TextField(verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE)
     # user = models.OneToOneField(User, verbose_name='Пользователь', null=True, on_delete=models.SET_NULL)
     approved = models.BooleanField(verbose_name='Одобрен', default=False, blank=False)
     # approved_by = models.OneToOneField(User, verbose_name='Кем одобрено', null=True, on_delete=models.SET_NULL)
