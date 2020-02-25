@@ -4,8 +4,6 @@
 
 {% block content %}
 
-    <h1>Страница product_index</h1>
-
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
@@ -27,17 +25,16 @@
                                     <h4>{{ comment.text }}</h4>
                                     <hr>
                                 {% empty %}
-                                    <h3>Пусто!</h3>
+                                    <h3>Комментариев к товару еще никто не оставил</h3>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                 {% empty %}
-                    <h3>Комментариев нет!</h3>
+                    <h3>Товаров пока нет!</h3>
                 {% endfor %}
             </div>
         </div>
     </div>
-
 
 {% endblock %}
