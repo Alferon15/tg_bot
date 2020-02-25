@@ -4,4 +4,4 @@ from .models import TelegramUser
 
 @admin.register(TelegramUser)
 class TelegramUserAdmin(admin.ModelAdmin):
-    fields = '__all__'
+    fields = ['id', 'username', 'is_admin', 'is_allowed']
