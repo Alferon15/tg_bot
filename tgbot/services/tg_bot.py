@@ -21,7 +21,7 @@ def process_updates(data):
     user_id = message.from_user.id
     username = message.from_user.username
 
-    if not TelegramUser.objects.get(user_id):
+    if not TelegramUser.objects.get(int(user_id)):
         TelegramUser.objects.create(user_id=user_id, username=username)
 
     msg = f'update_id - {update.update_id}\n' \
