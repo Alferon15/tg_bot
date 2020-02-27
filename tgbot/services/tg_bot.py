@@ -30,19 +30,24 @@ def process_updates(data):
     if not user:
         user = TelegramUser.objects.create(id=user_id, username=username, is_admin=admin_id == user_id)
 
-    msg = f'user - {user.id}\n' \
-          f'update_id - {update.update_id}\n' \
-          f'from_user - {message.from_user.id}\n' \
-          f'username - {message.from_user.username}\n\n' \
-          f'content_type - {message.content_type}\n' \
-          f'{message.text}'
+    msg_to_user = f'user - {user.id}\n' \
+                  f'update_id - {update.update_id}\n' \
+                  f'from_user - {message.from_user.id}\n' \
+                  f'username - {message.from_user.username}\n\n' \
+                  f'content_type - {message.content_type}\n' \
+                  f'{message.text}'
     if user.is_admin:
-        msg += '\nАдмин!'
+        msg_to_user += '\nАдмин!'
     if user.is_allowed:
-        msg += '\nДопущен!'
+        msg_to_user += '\nДопущен!'
 
-    bot.send_message(user_id, msg)
-    send_message_to_admin('to_admin')
+    bot.send_message(user_id, msg_to_user)
+
+    msg_to_admin = f'from_user - {message.from_user.id}\n' \
+                   f'username - {message.from_user.username}\n\n' \
+                   f'{message.text}'
+
+    send_message_to_admin(msg_to_admin)
     return res
 
 
