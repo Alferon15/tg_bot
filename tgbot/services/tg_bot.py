@@ -41,7 +41,9 @@ def process_updates(data):
     if user.is_allowed:
         msg += '\nДопущен!'
 
-    send_message_to_admin(msg)
+    message.reply(user_id, msg)
+
+    # send_message_to_admin(msg)
     return res
 
 
