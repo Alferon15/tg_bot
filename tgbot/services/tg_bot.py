@@ -43,7 +43,7 @@ def process_updates(data):
 
     bot.reply_to(message, msg)
 
-    # send_message_to_admin(msg)
+    send_message_to_admin(msg)
     return res
 
 
