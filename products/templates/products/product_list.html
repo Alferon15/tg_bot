@@ -11,6 +11,11 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
+                                {% for i in prod.images.all %}
+                                    <img src="{{ i.image.url }}" alt="..." class="img-rounded">
+                                {% empty %}
+                                    <h1>Изображений нет!</h1>
+                                {% endfor %}
                                 {{ prod.title }}
                             </div>
                             <div class="card-body">
