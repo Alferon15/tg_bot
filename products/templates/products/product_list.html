@@ -12,7 +12,7 @@
                         <div class="card">
                             <div class="card-header">
                                 {% for i in prod.images.all %}
-                                    <img src="{{ i.image.url }}" alt="..." class="img-rounded">
+                                    <img src="{{ i.image.url }}" alt="..." class="img-rounded m-x-auto d-block">
                                 {% empty %}
                                     <h1>Изображений нет!</h1>
                                 {% endfor %}
