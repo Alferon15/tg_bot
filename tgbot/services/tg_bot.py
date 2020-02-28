@@ -55,5 +55,11 @@ def send_message_to_admin(msg):
     bot.send_message(admin_id, msg)
 
 
+def send_message_to_all(msg):
+    all_users = TelegramUser.objects.all()
+    for usr in all_users:
+        bot.send_message(usr.id, msg)
+
+
 bot.delete_webhook()
 bot.set_webhook(WEBHOOK_URL)
