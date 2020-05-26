@@ -61,5 +61,5 @@ def send_message_to_all(msg):
         bot.send_message(usr.id, msg)
 
 
-bot.delete_webhook()
-bot.set_webhook(WEBHOOK_URL)
+# bot.delete_webhook()
+# bot.set_webhook(WEBHOOK_URL)

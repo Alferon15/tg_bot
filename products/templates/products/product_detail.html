@@ -7,37 +7,33 @@
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
-                {% for prod in product_list %}
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                {% for i in prod.images.all %}
-                                    <img src="{{ i.image.url }}" alt="..." class="img-rounded img-fluid">
-                                {% empty %}
-                                    <h1>Изображений нет!</h1>
-                                {% endfor %}
-                                {{ prod.title }}
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    {{ prod.description }}
-                                </p>
-                                <a href="#" class="btn btn-primary">Просмотреть</a>
-                            </div>
-                            <div class="card-footer">
-                                {% for comment in prod.comments.all %}
-                                    <h3>{{ comment.title }}</h3>
-                                    <h4>{{ comment.text }}</h4>
-                                    <hr>
-                                {% empty %}
-                                    <h3>Комментариев к товару еще никто не оставил</h3>
-                                {% endfor %}
-                            </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            {% for i in product.images.all %}
+                                <img src="{{ i.image.url }}" alt="..." class="img-rounded img-fluid">
+                            {% empty %}
+                                <h1>Изображений нет!</h1>
+                            {% endfor %}
+                            {{ product.title }}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ product.description }}
+                            </p>
+                            <a href="#" class="btn btn-primary">Просмотреть</a>
+                        </div>
+                        <div class="card-footer">
+                            {% for comment in product.comments.all %}
+                                <h3>{{ comment.title }}</h3>
+                                <h4>{{ comment.text }}</h4>
+                                <hr>
+                            {% empty %}
+                                <h3>Комментариев к товару еще никто не оставил</h3>
+                            {% endfor %}
                         </div>
                     </div>
-                {% empty %}
-                    <h3>Товаров пока нет!</h3>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </div>

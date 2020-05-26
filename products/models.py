@@ -43,7 +43,7 @@ class Comment(models.Model):
 
     title = models.TextField(verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
-    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True,
+    product = models.ForeignKey(Product, verbose_name='Товар', on_delete=models.CASCADE, null=True, blank=True,
                                 related_name='comments', related_query_name='comment')
     # user = models.OneToOneField(User, verbose_name='Пользователь', null=True, on_delete=models.SET_NULL)
     approved = models.BooleanField(verbose_name='Одобрен', default=False, blank=False)

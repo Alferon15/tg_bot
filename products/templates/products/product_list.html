@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 {% for prod in product_list %}
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
                                 {% for i in prod.images.all %}
@@ -22,7 +22,7 @@
                                 <p class="card-text">
                                     {{ prod.description }}
                                 </p>
-                                <a href="#" class="btn btn-primary">Просмотреть</a>
+                                <a href="{% url "products:detail" prod.pk %}" class="btn btn-primary">Просмотреть</a>
                             </div>
                             <div class="card-footer">
                                 {% for comment in prod.comments.all %}
