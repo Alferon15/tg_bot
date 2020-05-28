@@ -1,2 +1,3 @@
 /products/migrations/
 mysite/settings.py
+db.sqlite3
