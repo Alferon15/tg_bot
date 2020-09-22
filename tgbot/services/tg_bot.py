@@ -15,6 +15,11 @@ bot = telebot.TeleBot(BOT_TOKEN)
 logging.basicConfig(level=logging.INFO)
 
 
+def load_data_from_file():
+    f = open('osk_database/services/data.csv', 'r')
+    print(f)
+
+
 def process_updates(data):
     res = JsonResponse({"ok": True})
     update = telebot.types.Update.de_json(data)
@@ -40,6 +45,9 @@ def process_updates(data):
         msg_to_user += '\nАдмин!'
     if user.is_allowed:
         msg_to_user += '\nДопущен!'
+
+    if message.text == '/load':
+        msg_to_user += '\n\nLOAD!'
 
     bot.send_message(user_id, msg_to_user)
 
