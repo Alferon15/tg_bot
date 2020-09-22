@@ -2,7 +2,7 @@ from ..models import ServiceCode
 
 
 def load_data_from_file():
-    f = open('osk_database/services/data.csv', 'r', encoding='utf-8')
+    f = open('/home/Alferon15/alferon15.pythonanywhere.com/osk_database/services/data.csv', 'r', encoding='utf-8')
     f.readline()
     n = 30
     for row in f:
