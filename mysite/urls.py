@@ -26,6 +26,7 @@ urlpatterns = [
     path(''+SECRET, include('tgbot.urls'), name='tg_bot'),
     path('accounts/', include('allauth.urls'), name='accounts'),
     path('products/', include('products.urls'), name='products'),
+    path('osk/', include('osk_database.urls'), name='osk'),
 ]
 
 

@@ -14,7 +14,7 @@ class ServiceCode(models.Model):
     responsible = models.CharField(verbose_name='Ответственный', max_length=50)
     name_pc = models.CharField(verbose_name='Наименование ПК', max_length=50)
     level = models.CharField(verbose_name='Уровень обслуживания', max_length=50)
-    category = models.CharField(verbose_name='Категория', max_length=50)
     model = models.CharField(verbose_name='Производитель модель', max_length=50)
+    category = models.CharField(verbose_name='Категория', max_length=50)
     sn = models.CharField(verbose_name='Серийный номер', max_length=50)
     ais_tp = models.CharField(verbose_name='АИС ТП', max_length=50)
