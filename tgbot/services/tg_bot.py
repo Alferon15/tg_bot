@@ -43,7 +43,7 @@ def process_updates(data):
         msg_to_user += '\nДопущен!'
 
     if message.text == '/load':
-        load_data_from_file()
+        #load_data_from_file()
         msg_to_user += '\n\nLoaded!'
 
     bot.send_message(user_id, msg_to_user)
